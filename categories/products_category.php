@@ -121,14 +121,15 @@ include_once "../connection.php";
                         }
                         $result->free();
                     } else {
-                        echo "Ошибка: " . $conn->error;
+                        echo "<div>Ошибка: " . $conn->error . "</div>";
                     }
                     $conn->close();
                 } else {
                     echo "<div>Такой категории не существует</div>";
                 }
             } catch (Throwable $ex) {
-                echo "Сообщение об ошибке: " . $ex->getMessage() . "<br>";
+                echo "<div>Сообщение об ошибке: " . $ex->getMessage() . "</div>";
+                $conn->close();
             }
             ?>
         </div>

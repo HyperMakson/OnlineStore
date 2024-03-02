@@ -38,9 +38,6 @@ include_once "connection.php";
         </div>
         <div class="main-catalog">
             <?php
-            /* Запрос для получения заказа
-            $sql = "select users.firstname, users.lastname, products.productname, products.price
-            from (users inner join orders on users.id = orders.iduser) inner join products on products.id = orders.idproduct;";*/
             try {
                 $sql_products = "select * from products order by id desc limit 10;";
                 if ($result = $conn->query($sql_products)) {
@@ -60,11 +57,12 @@ include_once "connection.php";
                     }
                     $result->free();
                 } else {
-                    echo "Ошиибка: " . $conn->error;
+                    echo "<div>Ошибка: " . $conn->error . "</div>";
                 }
                 $conn->close();
             } catch (Throwable $ex) {
-                echo "Сообщение об ошибке: " . $ex->getMessage() . "<br>";
+                echo "<div>Сообщение об ошибке: " . $ex->getMessage() . "</div>";
+                $conn->close();
             }
             ?>
         </div>

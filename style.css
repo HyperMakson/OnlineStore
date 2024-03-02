@@ -589,6 +589,67 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: rgb(15, 15, 15);
+    color: white;
+    width: 75vw;
+    min-height: 50vh;
+    border-radius: 3rem;
+    padding: 5rem;
+    margin: 5rem;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-info div {
+    margin: 1rem 1rem 3rem 1rem;
+}
+
+.profile-info div p {
+    font-size: 1.4rem;
+}
+
+.profile-info a {
+    font-size: 1.4rem;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.profile-info a:hover {
+    color: rgb(150, 150, 150);
+}
+
+.profile-orders {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-orders .orders-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+
+.profile-orders .orders-list div {
+    margin: 0 1rem;
+}
+
+.profile-container .orders-label p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.profile-orders div p {
+    font-size: 1.4rem;
 }
 
 /*Нижняя часть*/

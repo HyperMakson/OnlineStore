@@ -32,10 +32,49 @@ include_once "../connection.php";
             if (isset($_SESSION["user"])) {
                 ?>
                 <div class="profile-container">
-                    <?php
-                    echo "<div>Вы авторизованы как " . $_SESSION["user"]["username"] . "</div>
-                    <div>Выйти: <a href='exit_auth.php'>здесь</a></div>";
-                    ?>
+                    <div class="profile-info">
+                        <?php
+                        echo "<div>
+                        <p>Вы авторизованы как " . $_SESSION["user"]["username"] . "</p>
+                        <p>Выйти: <a href='exit_auth.php'>здесь</a></p></div>";
+                        ?>
+                    </div>
+                    <div class="orders-label">
+                        <p>Заказы</p>
+                    </div>
+                    <div class="profile-orders">
+                        <?php
+                        try {
+                            $sql_orders = "select users.username, products.productname, products.price
+                            from (users inner join orders on users.id = orders.iduser) inner join products on products.id =
+                            orders.idproduct where users.id = " . $_SESSION["user"]["id"] . ";";
+                            if ($result = $conn->query($sql_orders)) {
+                                if ($result->num_rows > 0) {
+                                    foreach ($result as $order) {
+                                        echo "<div class='orders-list'>
+                                                <div>
+                                                    <p>Имя пользователя: " . $order["username"] . "</p>
+                                                    <p>Товар: " . $order["productname"] . "</p>
+                                                    <p>Цена: " . $order["price"] . " &#8381</p>
+                                                </div>
+                                                <div>
+                                                    <p>Фото:</p>
+                                                </div>
+                                        </div>";
+                                    }
+                                } else {
+                                    echo "<div>Заказов не найдено</div>";
+                                }
+                            } else {
+                                echo "<div>Ошибка: " . $conn->error . "</div>";
+                            }
+                            $conn->close();
+                        } catch (Throwable $ex) {
+                            echo "<div>Сообщение об ошибке: " . $ex->getMessage() . "</div>";
+                            $conn->close();
+                        }
+                        ?>
+                    </div>
                 </div>
                 <?php
             } else {
