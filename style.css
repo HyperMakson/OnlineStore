@@ -1,0 +1,690 @@
+/*Общее*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+/*Заголовок*/
+
+.header {
+    width: 100%;
+    height: 13vh;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: rgb(60, 60, 60);
+    color: white;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    padding: 0 5rem;
+}
+
+.header-logo h1 {
+    font-size: 3rem;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    padding: 0 5rem;
+}
+
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.header-nav a {
+    margin: 1rem;
+    font-size: 1.6rem;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.header-nav a:hover {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.header-nav button {
+    display: none;
+    background: none;
+    border: none;
+}
+
+.header-nav button:hover {
+    cursor: pointer;
+}
+
+.header-nav button img {
+    width: 5rem;
+    height: 5rem;
+}
+
+/*Основная часть*/
+
+.main {
+    margin-top: 13vh;
+    min-height: 74vh;
+}
+
+.hero {
+    width: 100%;
+    height: 87vh;
+    background-image: url(pictures/hero1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-label {
+    width: 50%;
+    padding: 10rem 15rem;
+    color: white;
+}
+
+.hero-label h1,
+.hero-label p {
+    text-shadow: 1px 1px 2px black;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.hero-label h1 {
+    margin: 0 0 3rem 0;
+    font-size: 2.4rem;
+}
+
+/*Каталог с товарами*/
+
+.main-catalog-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    padding: 3rem;
+    color: white;
+    font-weight: bold;
+    background: rgb(15, 15, 15);
+}
+
+.main-catalog-label p {
+    font-size: 2rem;
+}
+
+.main-catalog {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 87vh;
+    padding: 5rem;
+    font-size: 1.6rem;
+    background: rgb(200, 200, 200);
+}
+
+.main-catalog-card {
+    position: relative;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem;
+    padding: 5rem;
+    font-size: 1.6rem;
+    border-radius: 3rem;
+    background: rgb(15, 15, 15);
+    color: white;
+    width: auto;
+    min-height: 45rem;
+}
+
+.main-catalog-card:hover {
+    top: -1rem;
+}
+
+.main-catalog-card p {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+}
+
+.main-catalog-card a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 30rem;
+    background: white;
+    border-radius: 2rem;
+}
+
+.card-img {
+    width: 20rem;
+    height: auto;
+    padding: 1rem;
+    background: white;
+    border-radius: 2rem;
+}
+
+.card-btn {
+    color: white;
+    border-radius: 0.7rem;
+    font-size: 1.6rem;
+    padding: 1.5rem 4rem;
+    transition: all 0.3s ease-in-out;
+    background: rgb(100, 100, 210);
+    border: none;
+    cursor: pointer;
+}
+
+.card-btn:hover {
+    background: rgb(25, 25, 235);
+}
+
+/*Страница товара*/
+
+.product-card {
+    min-height: 74vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(15, 15, 15);
+    color: white;
+    font-size: 1.6rem;
+    padding: 5rem;
+}
+
+.product-card p {
+    font-size: 1.4rem;
+    margin: 0.8rem;
+    line-height: 1.5;
+}
+
+.product-card-up {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.product-card-up-left img {
+    width: 30rem;
+    height: auto;
+    transition: all 1s ease-out;
+}
+
+.product-card-up-left img:hover {
+    transform: scale(1.25);
+}
+
+.product-card-up-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.product-card-down {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/*Категории*/
+
+.category-img {
+    width: 40rem;
+    height: auto;
+    padding: 1rem;
+    background: white;
+    border-radius: 2rem;
+}
+
+.main-products-category {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.main-catalog-category {
+    min-height: 87vh;
+    width: auto;
+    flex-grow: 1;
+}
+
+.main-catalog-category div {
+    font-size: 1.6rem;
+}
+
+.main-category-card p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 2rem;
+}
+
+/*Фильтры*/
+
+.product-filters {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: sticky;
+    top: 13vh;
+    height: 87vh;
+    width: auto;
+    ;
+    padding: 2rem;
+    color: white;
+    background: rgb(15, 15, 15);
+}
+
+.product-filters>p {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.product-filters form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.product-filters form>div {
+    margin: 1rem 0;
+    padding: 0 0 1rem 0;
+    border-bottom: 1px solid white;
+}
+
+.product-filters form p,
+.product-filters form label,
+.product-filters form option,
+.product-filters form select {
+    font-size: 1.4rem;
+}
+
+.filter-manufacturer,
+.filter-price,
+.price-min,
+.price-max {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.filter-manufacturer>* {
+    margin: 0.5rem 0;
+}
+
+.filter-manufacturer select {
+    border-radius: 0.7rem;
+    padding: 0.7rem;
+    cursor: pointer;
+}
+
+.filter-price p {
+    margin: 0.5rem 0;
+}
+
+.filter-price .inputNumber {
+    border-radius: 0.7rem;
+    padding: 0.7rem;
+    width: 12rem;
+    font-size: 1.4rem;
+}
+
+.filter-price .inputRange {
+    cursor: pointer;
+}
+
+.product-filters .filters-button {
+    margin: 2rem 0;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.filters-button input {
+    color: white;
+    border-radius: 0.7rem;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    margin: 0 0 1.5rem 0;
+    transition: all 0.3s ease-in-out;
+    background: rgb(100, 100, 210);
+    border: none;
+    cursor: pointer;
+}
+
+.filters-button input:hover {
+    background: rgb(25, 25, 235);
+}
+
+/*Авторизация*/
+
+.auth-block {
+    background: rgb(15, 15, 15);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    min-height: 70vh;
+    min-width: 65vw;
+    border-radius: 3rem;
+}
+
+.auth-block h1 {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    letter-spacing: 0.3px;
+    margin: 2rem 0;
+}
+
+.auth-block p {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    letter-spacing: 0.3px;
+    margin: 0 0 2rem 0;
+}
+
+.auth-block a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.auth-block a:hover {
+    color: #fff;
+}
+
+.auth-block button,
+.auth-block input[type="submit"] {
+    background: rgb(100, 100, 210);
+    color: white;
+    font-size: 1.4rem;
+    padding: 1rem 4.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.auth-block input[type="submit"]:hover {
+    background: rgb(25, 25, 235);
+}
+
+.auth-block button.hidden {
+    background-color: transparent;
+    border-color: #fff;
+}
+
+.auth-block form {
+    background-color: rgb(15, 15, 15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 4rem;
+    height: 100%;
+}
+
+.auth-block .input-style {
+    background-color: #eee;
+    border: none;
+    margin: 0.8rem 0;
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+    border-radius: 0.8rem;
+    width: 100%;
+    outline: none;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.sign-in {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.auth-block.active .sign-in {
+    transform: translateX(100%);
+}
+
+.sign-up {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.auth-block.active .sign-up {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+
+@keyframes move {
+
+    0%,
+    49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    z-index: 10;
+    border-radius: 15rem 0 0 10rem;
+}
+
+.auth-block.active .toggle-container {
+    transform: translateX(-100%);
+    border-radius: 0 15rem 10rem 0;
+}
+
+.toggle {
+    background: rgb(100, 100, 210);
+    height: 100%;
+    background: linear-gradient(to right, rgb(100, 100, 210), rgb(25, 25, 235));
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.auth-block.active .toggle {
+    transform: translateX(50%);
+}
+
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 3rem;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.toggle-left {
+    transform: translateX(-200%);
+}
+
+.auth-block.active .toggle-left {
+    transform: translateX(0);
+}
+
+.toggle-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.auth-block.active .toggle-right {
+    transform: translateX(200%);
+}
+
+/*Авторизованный пользователь*/
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Нижняя часть*/
+
+.footer {
+    width: 100%;
+    height: 13vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(150, 150, 150);
+    color: white;
+}
+
+.footer-info p {
+    font-size: 1.4rem;
+}
+
+/*Медиа-запросы*/
+
+@media screen and (max-width: 1240px) {
+    .product-card-up-left img:hover {
+        transform: scale(1.2);
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .product-card-up-left img:hover {
+        transform: scale(1.1);
+    }
+
+    .auth-block h1 {
+        font-size: 1.4rem;
+    }
+
+    .auth-block p {
+        font-size: 1.2rem;
+    }
+
+    .auth-block .input-style {
+        font-size: 1.2rem;
+    }
+
+    .auth-block button.hidden,
+    .auth-block input[type="submit"] {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .header-nav ul {
+        display: none;
+    }
+
+    .header-nav button {
+        display: block;
+    }
+
+    .product-card-up {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .product-card-up-right {
+        align-items: center;
+    }
+
+    .product-card-up-left img:hover {
+        transform: none;
+    }
+
+    .product-filters {
+        display: none;
+    }
+
+    .main-category-card {
+        height: 30rem;
+    }
+
+    .category-img {
+        width: 30rem;
+    }
+
+    .auth-block h1 {
+        font-size: 1.2rem;
+    }
+
+    .auth-block p {
+        font-size: 1rem;
+    }
+
+    .auth-block button.hidden,
+    .auth-block input[type="submit"] {
+        font-size: 0.9rem;
+        padding: 1rem 1rem;
+        margin: 1rem 0;
+    }
+}
