@@ -45,7 +45,7 @@ include_once "../connection.php";
                     <div class="profile-orders">
                         <?php
                         try {
-                            $sql_orders = "select users.username, products.productname, products.price
+                            $sql_orders = "select users.username, products.productname, products.price, products.photo
                             from (users inner join orders on users.id = orders.iduser) inner join products on products.id =
                             orders.idproduct where users.id = " . $_SESSION["user"]["id"] . ";";
                             if ($result = $conn->query($sql_orders)) {
@@ -58,7 +58,7 @@ include_once "../connection.php";
                                                     <p>Цена: " . $order["price"] . " &#8381</p>
                                                 </div>
                                                 <div>
-                                                    <p>Фото:</p>
+                                                    <p><img class='card-img' src='../" . $order["photo"] . "'></p>
                                                 </div>
                                         </div>";
                                     }
