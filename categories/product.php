@@ -40,11 +40,11 @@ include_once "../connection.php";
                                     <div class='product-card-up-left'>
                                         <img class='card-img' src='../" . $row["photo"] . "' alt='Изображение телефона'>
                                     </div>
-                                    <div class='product-card-up-right'>
+                                    <form class='product-card-up-right' action='../profile/check_buy.php' method='post'>
                                         <p>" . $row["productname"] . "</p>
                                         <p>Цена: " . $row["price"] . " &#8381</p>
-                                        <button class='card-btn'>Купить</button>
-                                    </div>
+                                        <input type='submit' class='card-btn' value='Купить' name='buy_button'>
+                                    </form>
                                 </div>
                                 <div class='product-card-down'>
                                     <p>Описание:</p>

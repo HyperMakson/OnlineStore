@@ -107,14 +107,14 @@ include_once "../connection.php";
                     if ($result = $conn->query($sql_products_category)) {
                         if ($result->num_rows > 0) {
                             foreach ($result as $row) {
-                                echo "<div class='main-catalog-card'>
+                                echo "<form class='main-catalog-card' action='../profile/check_buy.php' method='post'>
                                         <a href='product.php?id=" . $row["id"] . "'>
                                             <img class='card-img' src='../" . $row["photo"] . "' alt='Изображение телефона'>
                                         </a>
                                         <p>" . $row["productname"] . "</p>
                                         <p>Цена: " . $row["price"] . " &#8381</p>
-                                        <button class='card-btn'>Купить</button>
-                                    </div>";
+                                        <input type='submit' class='card-btn' value='Купить' name='buy_button'>
+                                    </form>";
                             }
                         } else {
                             echo "<div>Нет ни одного товара в категории</div>";
@@ -140,6 +140,7 @@ include_once "../connection.php";
         </div>
     </div>
     <script src="../scripts/script.js"></script>
+    <script src="../scripts/filter_products.js"></script>
 </body>
 
 </html>

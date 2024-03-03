@@ -39,18 +39,25 @@ include_once "connection.php";
         <div class="main-catalog">
             <?php
             try {
+                // Немного не то, надо додумать
+                if (isset($_SERVER["HTTP_REFERER"])) {
+                    if ($_SERVER["HTTP_REFERER"] == "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]) {
+                        echo "YESS";
+                    }
+                }
+                // .
                 $sql_products = "select * from products order by id desc limit 10;";
                 if ($result = $conn->query($sql_products)) {
                     if ($result->num_rows > 0) {
                         foreach ($result as $row) {
-                            echo "<div class='main-catalog-card'>
+                            echo "<form class='main-catalog-card' action='profile/check_buy.php' method='post'>
                                     <a href='categories/product.php?id=" . $row["id"] . "'>
                                         <img class='card-img' src='" . $row["photo"] . "' alt='Изображение телефона'>
                                     </a>
                                     <p>" . $row["productname"] . "</p>
                                     <p>Цена: " . $row["price"] . " &#8381</p>
-                                    <button class='card-btn'>Купить</button>
-                                </div>";
+                                    <input type='submit' class='card-btn' value='Купить' name='buy_button'>
+                                </form>";
                         }
                     } else {
                         echo "<div>Весь товар закончился</div>";
