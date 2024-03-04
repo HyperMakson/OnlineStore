@@ -39,13 +39,11 @@ include_once "connection.php";
         <div class="main-catalog">
             <?php
             try {
-                // Немного не то, надо додумать
                 if (isset($_SERVER["HTTP_REFERER"])) {
-                    if ($_SERVER["HTTP_REFERER"] == "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]) {
-                        echo "YESS";
+                    if ($_SERVER["HTTP_REFERER"] === "http://onlinestore/profile/check_buy.php") {
+                        echo "<div>Покупка была успешно произведена</div>";
                     }
                 }
-                // .
                 $sql_products = "select * from products order by id desc limit 10;";
                 if ($result = $conn->query($sql_products)) {
                     if ($result->num_rows > 0) {
@@ -56,6 +54,7 @@ include_once "connection.php";
                                     </a>
                                     <p>" . $row["productname"] . "</p>
                                     <p>Цена: " . $row["price"] . " &#8381</p>
+                                    <input type='hidden' class='hidden_id_product' value='" . $row["id"] . "' name='id_product'>
                                     <input type='submit' class='card-btn' value='Купить' name='buy_button'>
                                 </form>";
                         }

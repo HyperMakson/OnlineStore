@@ -113,6 +113,7 @@ include_once "../connection.php";
                                         </a>
                                         <p>" . $row["productname"] . "</p>
                                         <p>Цена: " . $row["price"] . " &#8381</p>
+                                        <input type='hidden' class='hidden_id_product' value='" . $row["id"] . "' name='id_product'>
                                         <input type='submit' class='card-btn' value='Купить' name='buy_button'>
                                     </form>";
                             }
