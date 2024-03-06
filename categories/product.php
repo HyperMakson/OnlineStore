@@ -29,6 +29,25 @@ include_once "../connection.php";
     <div class="main">
         <?php
         try {
+            if (isset($_SERVER["HTTP_REFERER"])) {
+                if ($_SERVER["HTTP_REFERER"] === "http://onlinestore/profile/check_buy.php") {
+                    ?>
+                    <div class='overlay'>
+                        <script>
+                            var bodyStop = document.querySelector("body");
+                            bodyStop.classList.add("stop");
+                        </script>
+                    </div>
+                    <div class='confirm-buy-win'>
+                        <p>Покупка была успешно произведена</p>
+                        <div>
+                            <button class='btn-del-win'>ОК</button>
+                            <button class='btn-go-profile'>Посмотреть</button>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
             if (isset($_GET["id"])) {
                 $product_id = $conn->real_escape_string($_GET["id"]);
                 $sql_product = "select * from products inner join product_desc on products.id = product_desc.idproduct where products.id = '$product_id';";

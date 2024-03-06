@@ -76,6 +76,25 @@ include_once "../connection.php";
         <div class="main-catalog main-catalog-category">
             <?php
             try {
+                if (isset($_SERVER["HTTP_REFERER"])) {
+                    if ($_SERVER["HTTP_REFERER"] === "http://onlinestore/profile/check_buy.php") {
+                        ?>
+                        <div class='overlay'>
+                            <script>
+                                var bodyStop = document.querySelector("body");
+                                bodyStop.classList.add("stop");
+                            </script>
+                        </div>
+                        <div class='confirm-buy-win'>
+                            <p>Покупка была успешно произведена</p>
+                            <div>
+                                <button class='btn-del-win'>ОК</button>
+                                <button class='btn-go-profile'>Посмотреть</button>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                }
                 if (isset($_GET["id"])) {
                     $category_id = $conn->real_escape_string($_GET["id"]);
                     if (!empty($_POST)) {

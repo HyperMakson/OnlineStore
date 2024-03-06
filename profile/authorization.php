@@ -78,6 +78,24 @@ include_once "../connection.php";
                 </div>
                 <?php
             } else {
+                if (isset($_SERVER["HTTP_REFERER"])) {
+                    if ($_SERVER["HTTP_REFERER"] === "http://onlinestore/profile/check_buy.php") {
+                        ?>
+                        <div class='overlay'>
+                            <script>
+                                var bodyStop = document.querySelector("body");
+                                bodyStop.classList.add("stop");
+                            </script>
+                        </div>
+                        <div class='confirm-buy-win'>
+                            <p>Для покупки необходимо авторизоваться</p>
+                            <div>
+                                <button class='btn-del-win'>ОК</button>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                }
                 ?>
                 <div class="auth-block" id="container">
                     <div class="form-container sign-up">

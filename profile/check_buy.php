@@ -17,8 +17,10 @@ try {
                 exit();
             }
         } else {
-            echo "<div>Для покупки необходимо авторизоваться</div>";
             $conn->close();
+            ?>
+            <script>window.location.replace("http://onlinestore/profile/authorization.php");</script>
+            <?php
             exit();
         }
     }
