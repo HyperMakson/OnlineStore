@@ -25,9 +25,18 @@ include_once "../connection.php";
             </ul>
             <button class="drop-down-btn"><img src="../pictures/drop-down1.png" alt="Выпадающий список"></button>
         </div>
+        <div class="side-nav">
+            <button class="drop-down-btn-close">&#10006;</button>
+            <ul>
+                <li><a href="../index.php">Главная</a></li>
+                <li><a href="category.php">Категории</a></li>
+                <li><a href="../profile/authorization.php">Профиль</a></li>
+            </ul>
+        </div>
     </div>
     <div class="main main-products-category">
         <div class="product-filters">
+            <button class="product-filters-close">&#8678;</button>
             <p>Фильтры</p>
             <form action="" method="post">
                 <div class="filter-manufacturer">
@@ -73,6 +82,7 @@ include_once "../connection.php";
                 </div>
             </form>
         </div>
+        <button class="product-filters-open">&#8680;</button>
         <div class="main-catalog main-catalog-category">
             <?php
             try {

@@ -2,10 +2,25 @@
 
 var dropBtn = document.querySelector(".drop-down-btn");
 dropBtn.addEventListener('click', function () {
-    alert("Hello");
+    var sidebar = document.querySelector(".side-nav");
+    sidebar.style.width = "200px";
 });
 
-//Удаление окна подтверждения
+var dropBtnClose = document.querySelector(".drop-down-btn-close");
+dropBtnClose.addEventListener('click', function () {
+    var sidebar = document.querySelector(".side-nav");
+    sidebar.style.width = "0";
+});
+
+window.addEventListener('resize', function () {
+    var winWidth = window.innerWidth;
+    if (winWidth > 720) {
+        var sidebar = document.querySelector(".side-nav");
+        sidebar.style.width = "0";
+    }
+});
+
+// Удаление окна подтверждения
 
 function delWindow() {
     var delWin = document.querySelector(".confirm-buy-win");

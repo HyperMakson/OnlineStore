@@ -25,6 +25,14 @@ include_once "../connection.php";
             </ul>
             <button class="drop-down-btn"><img src="../pictures/drop-down1.png" alt="Выпадающий список"></button>
         </div>
+        <div class="side-nav">
+            <button class="drop-down-btn-close">&#10006;</button>
+            <ul>
+                <li><a href="../index.php">Главная</a></li>
+                <li><a href="category.php">Категории</a></li>
+                <li><a href="../profile/authorization.php">Профиль</a></li>
+            </ul>
+        </div>
     </div>
     <div class="main">
         <div class="main-catalog">
