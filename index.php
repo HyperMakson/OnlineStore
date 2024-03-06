@@ -41,7 +41,13 @@ include_once "connection.php";
             try {
                 if (isset($_SERVER["HTTP_REFERER"])) {
                     if ($_SERVER["HTTP_REFERER"] === "http://onlinestore/profile/check_buy.php") {
-                        echo "<div>Покупка была успешно произведена</div>";
+                        echo "<div class='confirm-buy-win'>
+                                <p>Покупка была успешно произведена</p>
+                                <div>
+                                    <button class='btn-del-win'>ОК</button>
+                                    <button>Посмотреть</button>
+                                </div>
+                            </div>";
                     }
                 }
                 $sql_products = "select * from products order by id desc limit 10;";

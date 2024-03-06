@@ -17,7 +17,7 @@
     justify-content: space-between;
     position: fixed;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
     background-color: rgb(60, 60, 60);
     color: white;
 }
@@ -665,6 +665,53 @@
     color: rgb(15, 15, 15);
     text-shadow: 1px 1px 2px white;
     margin: 1rem 0;
+}
+
+/*Подтверждение оплаты*/
+
+.confirm-buy-win {
+    z-index: 10;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(107, 205, 16);
+    border-radius: 1rem;
+    color: white;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm-buy-win p {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.confirm-buy-win div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.confirm-buy-win div button {
+    font-size: 1.6rem;
+    margin: 2rem 1rem 0 1rem;
+    padding: 1rem;
+    background: rgb(100, 100, 210);
+    color: white;
+    border-radius: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.confirm-buy-win div button:hover {
+    background: rgb(25, 25, 235);
 }
 
 /*Нижняя часть*/
