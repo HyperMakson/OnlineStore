@@ -17,7 +17,7 @@ for (let i = 0; i < 2; i++) {
 var dropBtnFilters = document.querySelector(".product-filters-open");
 dropBtnFilters.addEventListener('click', function () {
     var sideFilters = document.querySelector(".product-filters");
-    sideFilters.style.width = "auto";
+    sideFilters.style.width = "250px";
     sideFilters.style.padding = "2rem";
     dropBtnCloseFilters.style.display = "block";
     dropBtnFilters.style.display = "none";
