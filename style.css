@@ -503,6 +503,11 @@
     outline: none;
 }
 
+.auth-block .input-style:focus {
+    border: 1px solid rgb(25, 25, 235);
+    box-shadow: 0 0 10px rgb(100, 100, 210);
+}
+
 .form-container {
     position: absolute;
     top: 0;

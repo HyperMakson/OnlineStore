@@ -5,7 +5,9 @@ try {
     if (isset($_POST["buy_button"])) {
         if (isset($_SESSION["user"])) {
             $id_product = $conn->real_escape_string($_POST["id_product"]);
-            $sql_get_order = "insert into orders (iduser, idproduct) values (" . $_SESSION["user"]["id"] . ", " . $id_product . ");";
+            $date = date('Y-m-d H:i:s');
+            $sql_get_order = "insert into orders (iduser, idproduct, date_purchase)
+            values (" . $_SESSION["user"]["id"] . ", " . $id_product . ", '" . $date . "');";
             if ($conn->query($sql_get_order)) {
                 ?>
                 <script>window.location.replace(document.referrer);</script>

@@ -53,9 +53,9 @@ include_once "../connection.php";
                     <div class="profile-orders">
                         <?php
                         try {
-                            $sql_orders = "select users.username, products.productname, products.price, products.photo
+                            $sql_orders = "select users.username, products.productname, products.price, products.photo, orders.date_purchase
                             from (users inner join orders on users.id = orders.iduser) inner join products on products.id =
-                            orders.idproduct where users.id = " . $_SESSION["user"]["id"] . ";";
+                            orders.idproduct where users.id = " . $_SESSION["user"]["id"] . " order by orders.date_purchase DESC;";
                             if ($result = $conn->query($sql_orders)) {
                                 if ($result->num_rows > 0) {
                                     foreach ($result as $order) {
@@ -64,6 +64,7 @@ include_once "../connection.php";
                                                     <p>Имя пользователя: " . $order["username"] . "</p>
                                                     <p>Товар: " . $order["productname"] . "</p>
                                                     <p>Цена: " . $order["price"] . " &#8381</p>
+                                                    <p>Дата покупки: " . $order["date_purchase"] . "</p>
                                                 </div>
                                                 <div>
                                                     <p><img class='card-img' src='../" . $order["photo"] . "'></p>
@@ -109,17 +110,19 @@ include_once "../connection.php";
                     <div class="form-container sign-up">
                         <form action="check_auth.php" method="post">
                             <h1>Зарегистрироваться</h1>
-                            <input type="text" name="username" class="input-style" placeholder="Имя">
-                            <input type="email" name="email" class="input-style" placeholder="Email">
-                            <input type="password" name="password" class="input-style" placeholder="Пароль">
+                            <input type="text" name="username" class="input-style input-name" placeholder="Имя" required>
+                            <input type="email" name="email" class="input-style input-email" placeholder="Email" required>
+                            <input type="password" name="password" class="input-style input-pass" placeholder="Пароль"
+                                required>
                             <input type="submit" name="reg_button" value="Зарегистрироваться">
                         </form>
                     </div>
                     <div class="form-container sign-in">
                         <form action="check_auth.php" method="post">
                             <h1>Войти в профиль</h1>
-                            <input type="email" name="email" class="input-style" placeholder="Email">
-                            <input type="password" name="password" class="input-style" placeholder="Пароль">
+                            <input type="email" name="email" class="input-style input-email" placeholder="Email" required>
+                            <input type="password" name="password" class="input-style input-pass" placeholder="Пароль"
+                                required>
                             <a href="#">Забыли пароль?</a>
                             <input type="submit" name="log_button" value="Войти">
                         </form>
