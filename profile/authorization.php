@@ -108,23 +108,23 @@ include_once "../connection.php";
                 ?>
                 <div class="auth-block" id="container">
                     <div class="form-container sign-up">
-                        <form action="check_auth.php" method="post">
+                        <form action="check_auth.php" method="post" class="form-reg">
                             <h1>Зарегистрироваться</h1>
                             <input type="text" name="username" class="input-style input-name" placeholder="Имя" required>
                             <input type="email" name="email" class="input-style input-email" placeholder="Email" required>
                             <input type="password" name="password" class="input-style input-pass" placeholder="Пароль"
                                 required>
-                            <input type="submit" name="reg_button" value="Зарегистрироваться">
+                            <input type="submit" name="reg_button" class="auth-btn" value="Зарегистрироваться">
                         </form>
                     </div>
                     <div class="form-container sign-in">
-                        <form action="check_auth.php" method="post">
+                        <form action="check_auth.php" method="post" class="form-log">
                             <h1>Войти в профиль</h1>
                             <input type="email" name="email" class="input-style input-email" placeholder="Email" required>
                             <input type="password" name="password" class="input-style input-pass" placeholder="Пароль"
                                 required>
                             <a href="#">Забыли пароль?</a>
-                            <input type="submit" name="log_button" value="Войти">
+                            <input type="submit" name="log_button" class="auth-btn" value="Войти">
                         </form>
                     </div>
                     <div class="toggle-container">
