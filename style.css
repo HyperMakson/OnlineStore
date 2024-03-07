@@ -400,7 +400,7 @@
 }
 
 .product-filters-open {
-    position: absolute;
+    position: fixed;
     top: 13vh;
     left: 0;
 }
