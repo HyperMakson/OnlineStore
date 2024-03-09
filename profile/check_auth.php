@@ -22,10 +22,14 @@ try {
                     //setcookie('user', $username, time() + 30, "/");
                     $result->free();
                     $conn->close();
-                    header("Location: authorization.php");
+                    ?>
+                    <script>window.location.replace("http://onlinestore/profile/authorization.php");</script>
+                    <?php
                 } else {
-                    echo "<div>Пользователь не найден</div>";
                     $conn->close();
+                    ?>
+                    <script>window.location.replace("http://onlinestore/profile/authorization.php");</script>
+                    <?php
                     exit();
                 }
             } else {
@@ -56,10 +60,14 @@ try {
                 //setcookie('user', $user["username"], time() + 30, "/");
                 $result->free();
                 $conn->close();
-                header("Location: authorization.php");
+                ?>
+                <script>window.location.replace("http://onlinestore/profile/authorization.php");</script>
+                <?php
             } else {
-                echo "<div>Пользователь не найден</div>";
                 $conn->close();
+                ?>
+                <script>window.location.replace("http://onlinestore/profile/authorization.php");</script>
+                <?php
                 exit();
             }
         } else {

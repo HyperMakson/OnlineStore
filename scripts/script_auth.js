@@ -14,6 +14,21 @@ loginBtn.addEventListener('click', () => {
 
 // Проверка ввода формы
 
+const usernameReg = /^[0-9A-ZА-ЯЁ]{4,}$/i;
+const isUsername = function (str) {
+    return usernameReg.test(str);
+}
+
+const emailReg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-z\-0-9]+\.)+[a-z]{2,}))$/i;
+const isEmail = function (str) {
+    return emailReg.test(str);
+}
+
+const passwordReg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[-#!$@%^&*_+~=:;?\/])[-\w#!$@%^&*+~=:;?\/]{8,}$/;
+const isPassword = function (str) {
+    return passwordReg.test(str);
+}
+
 var nameInput = document.querySelector(".input-name");
 var emailInput = document.querySelectorAll(".input-email");
 var passInput = document.querySelectorAll(".input-pass");
@@ -36,7 +51,7 @@ btnInput.forEach(elementBtn => {
 
 nameInput.addEventListener('keyup', function () {
     let username = nameInput.value;
-    if (username === "" || username.length < 4) {
+    if (!isUsername(username)) {
         nameInput.style.color = "red";
         usernameCheck = false;
     } else {
@@ -48,7 +63,7 @@ nameInput.addEventListener('keyup', function () {
 for (let i = 0; i < 2; i++) {
     emailInput[i].addEventListener('keyup', function () {
         let email = emailInput[i].value;
-        if (email === "" || email.length < 5 || email.length > 31) {
+        if (!isEmail(email)) {
             emailInput[i].style.color = "red";
             passInput[i].disabled = true;
             passInput[i].style.opacity = "0.5";
@@ -71,7 +86,7 @@ for (let i = 0; i < 2; i++) {
     });
     passInput[i].addEventListener('keyup', function () {
         let pass = passInput[i].value;
-        if (pass === "" || pass.length < 8) {
+        if (!isPassword(pass)) {
             passInput[i].style.color = "red";
             btnInput[i].disabled = true;
             btnInput[i].style.opacity = "0.5";
@@ -95,7 +110,18 @@ var formReg = document.querySelector(".form-reg");
 formReg.addEventListener('submit', event => {
     if (usernameCheck !== true || emailCheck !== true || passCheck !== true) {
         event.preventDefault();
-        alert("Данные указаны неверно");
+        var incorrect = {
+            "Имя": usernameCheck,
+            "Email": emailCheck,
+            "Пароль": passCheck
+        };
+        var strIncrorrect = "Неверно указано: ";
+        Object.entries(incorrect).forEach(([key, value]) => {
+            if (value == false) {
+                strIncrorrect += key;
+            }
+        });
+        alert(strIncrorrect);
     }
 });
 
@@ -103,6 +129,16 @@ var formLog = document.querySelector(".form-log");
 formLog.addEventListener('submit', event => {
     if (emailCheck !== true || passCheck !== true) {
         event.preventDefault();
-        alert("Данные указаны неверно");
+        var incorrect = {
+            "Email": emailCheck,
+            "Пароль": passCheck
+        };
+        var strIncrorrect = "Неверно указано: ";
+        Object.entries(incorrect).forEach(([key, value]) => {
+            if (value == false) {
+                strIncrorrect += key;
+            }
+        });
+        alert(strIncrorrect);
     }
 });

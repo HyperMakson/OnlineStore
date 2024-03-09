@@ -770,6 +770,10 @@ body.stop {
     width: 100%;
 }
 
+.confirm-user-not {
+    background: rgb(191, 25, 25);
+}
+
 /*Выпадающее боковое меню*/
 
 .side-nav {

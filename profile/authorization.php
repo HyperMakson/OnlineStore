@@ -104,6 +104,22 @@ include_once "../connection.php";
                         </div>
                         <?php
                     }
+                    if ($_SERVER["HTTP_REFERER"] === "http://onlinestore/profile/check_auth.php") {
+                        ?>
+                        <div class='overlay'>
+                            <script>
+                                var bodyStop = document.querySelector("body");
+                                bodyStop.classList.add("stop");
+                            </script>
+                        </div>
+                        <div class='confirm-buy-win confirm-user-not'>
+                            <p>Пользователь не найден</p>
+                            <div>
+                                <button class='btn-del-win'>ОК</button>
+                            </div>
+                        </div>
+                        <?php
+                    }
                 }
                 ?>
                 <div class="auth-block" id="container">
