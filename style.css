@@ -156,6 +156,7 @@
 
 .main-catalog-card:hover {
     top: -1rem;
+    box-shadow: 0 2rem 2rem rgb(15, 15, 15);
 }
 
 .main-catalog-card p {
