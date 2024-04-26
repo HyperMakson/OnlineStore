@@ -17,7 +17,8 @@ try {
                     $_SESSION["user"] = [
                         'id' => $user["id"],
                         'username' => $user["username"],
-                        'email' => $user["email"]
+                        'email' => $user["email"],
+                        'role' => $user["role"]
                     ];
                     //setcookie('user', $username, time() + 30, "/");
                     $result->free();
@@ -55,7 +56,8 @@ try {
                 $_SESSION["user"] = [
                     'id' => $user["id"],
                     'username' => $user["username"],
-                    'email' => $user["email"]
+                    'email' => $user["email"],
+                    'role' => $user["role"]
                 ];
                 //setcookie('user', $user["username"], time() + 30, "/");
                 $result->free();

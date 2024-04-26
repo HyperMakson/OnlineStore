@@ -696,6 +696,7 @@
 .profile-container .orders-label p {
     font-size: 2.4rem;
     font-weight: bold;
+    margin-bottom: 2rem;
 }
 
 .profile-orders div p {
@@ -704,6 +705,11 @@
     text-shadow: 1px 1px 2px white;
     margin: 1rem 0;
 }
+
+.profile-orders .orders-list-none {
+    font-size: 1.8rem;
+}
+
 
 /*Подтверждение оплаты*/
 

@@ -43,8 +43,9 @@ include_once "../connection.php";
                     <div class="profile-info">
                         <?php
                         echo "<div>
-                        <p>Вы авторизованы как " . $_SESSION["user"]["username"] . "</p>
-                        <p>Выйти: <a href='exit_auth.php'>здесь</a></p></div>";
+                            <p>Вы авторизованы как " . $_SESSION["user"]["username"] . "</p>
+                            <p>Выйти: <a href='exit_auth.php'>здесь</a></p>
+                        </div>";
                         ?>
                     </div>
                     <div class="orders-label">
@@ -53,9 +54,16 @@ include_once "../connection.php";
                     <div class="profile-orders">
                         <?php
                         try {
-                            $sql_orders = "select users.username, products.productname, products.price, products.photo, orders.date_purchase
-                            from (users inner join orders on users.id = orders.iduser) inner join products on products.id =
-                            orders.idproduct where users.id = " . $_SESSION["user"]["id"] . " order by orders.date_purchase DESC;";
+                            if ($_SESSION["user"]["role"] === "admin") {
+                                echo "<div class='orders-list-none'>Its admin</div>";
+                                $sql_orders = "select users.username, products.productname, products.price, products.photo, orders.date_purchase
+                                from (users inner join orders on users.id = orders.iduser) inner join products on products.id =
+                                orders.idproduct order by orders.date_purchase DESC;";
+                            } else {
+                                $sql_orders = "select users.username, products.productname, products.price, products.photo, orders.date_purchase
+                                from (users inner join orders on users.id = orders.iduser) inner join products on products.id =
+                                orders.idproduct where users.id = " . $_SESSION["user"]["id"] . " order by orders.date_purchase DESC;";
+                            }
                             if ($result = $conn->query($sql_orders)) {
                                 if ($result->num_rows > 0) {
                                     foreach ($result as $order) {
@@ -72,7 +80,7 @@ include_once "../connection.php";
                                         </div>";
                                     }
                                 } else {
-                                    echo "<div>Заказов не найдено</div>";
+                                    echo "<div class='orders-list-none'>Заказов не найдено</div>";
                                 }
                             } else {
                                 echo "<div>Ошибка: " . $conn->error . "</div>";
